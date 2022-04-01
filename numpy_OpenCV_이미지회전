@@ -1,0 +1,115 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled3.ipynb",
+      "private_outputs": true,
+      "provenance": [],
+      "authorship_tag": "ABX9TyPzfqmII6K5caI0Qz3ySETI",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    },
+    "accelerator": "GPU"
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/dlehdgus7494/jump_to_python/blob/main/numpy_OpenCV_%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%9A%8C%EC%A0%84\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "bLQINiI-VFOm"
+      },
+      "outputs": [],
+      "source": [
+        "from google.colab import files\n",
+        "uploaded = files.upload()"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import cv2\n",
+        "import matplotlib.pyplot as plt\n",
+        "\n",
+        "image = cv2.imread('cat.jpg.png')\n",
+        "plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))\n",
+        "plt.show()\n",
+        "\n",
+        "expand = cv2.resize(image, None, fx=2.0, fy=2.0, interpolation=cv2.INTER_CUBIC)\n",
+        "plt.imshow(cv2.cvtColor(expand, cv2.COLOR_BGR2RGB))\n",
+        "plt.show()\n",
+        "\n",
+        "shrink = cv2.resize(image, None, fx=0.8, fy=0.8, interpolation=cv2.INTER_AREA)\n",
+        "plt.imshow(cv2.cvtColor(shrink, cv2.COLOR_BGR2RGB))\n",
+        "plt.show()"
+      ],
+      "metadata": {
+        "id": "SX7Oc7B0Wbdg"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import cv2\n",
+        "import numpy as np\n",
+        "import matplotlib.pyplot as plt\n",
+        "\n",
+        "image = cv2.imread('cat.jpg.png')\n",
+        "\n",
+        "height, width = image.shape[:2]\n",
+        "\n",
+        "M = np.float32([[1, 0, 50], [0, 1, 10]])\n",
+        "dst = cv2.warpAffine(image, M, (width, height))\n",
+        "\n",
+        "plt.imshow(cv2.cvtColor(dst, cv2.COLOR_BGR2RGB))\n",
+        "plt.show()"
+      ],
+      "metadata": {
+        "id": "E5-AYYFQWr2f"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import cv2\n",
+        "import numpy as np\n",
+        "import matplotlib.pyplot as plt\n",
+        "\n",
+        "image = cv2.imread('cat.jpg')\n",
+        "\n",
+        "height, width = image.shape[:2]\n",
+        "\n",
+        "M = cv2.getRotationMatrix2D((width / 2, height / 2), 90, 0.5)\n",
+        "dst = cv2.warpAffine(image, M, (width, height))\n",
+        "\n",
+        "plt.imshow(cv2.cvtColor(dst, cv2.COLOR_BGR2RGB))\n",
+        "plt.show()"
+      ],
+      "metadata": {
+        "id": "JxChay-yXVtV"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
