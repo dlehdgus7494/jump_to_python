@@ -1,0 +1,89 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled1.ipynb",
+      "private_outputs": true,
+      "provenance": [],
+      "authorship_tag": "ABX9TyMNRwVL06dohmGh2UcNKkHl",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/dlehdgus7494/jump_to_python/blob/main/numpy_OpenCV_%EA%B8%B0%EB%B3%B8\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "o7dF-Wo5cPw1"
+      },
+      "outputs": [],
+      "source": [
+        "import cv2\n",
+        "\n",
+        "cv2.imread(filename, flag)  \n",
+        "#flag (IMREAD_COLOR : 이미지를 컬러로 읽고, 투명한 부분은 무시) / (IMREAD_GRAYSCALE : Grayscale로 읽기)\n",
+        "     #(IMREAD_UN CHANGED : 이미지 Color로 읽고, 투명부분 읽기), 행열색상  BGR"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import cv2\n",
+        "\n",
+        "# 특정한 이미지 출력\n",
+        "cv2.imshow(title, image)\n",
+        "# title : 윈도우 창 제목\n",
+        "# image : 출력할 이미지 객체\n",
+        "\n",
+        "# 이미지 파일로 저장\n",
+        "cv2.imwrite(filename, image)"
+      ],
+      "metadata": {
+        "id": "eeZarzp9d0r3"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from google.colab import files\n",
+        "uploaded = files.upload()\n",
+        "\n",
+        "import cv2\n",
+        "import matplotlib.pyplot as plt\n",
+        "\n",
+        "img_basic = cv2.imread('cat.jpg.png', cv2.IMREAD_COLOR)\n",
+        "plt.imshow(cv2.cvtColor(img_basic, cv2.COLOR_BGR2RGB))\n",
+        "plt.show()\n",
+        "\n",
+        "img_basic = cv2.cvtColor(img_basic, cv2.COLOR_BGR2GRAY)\n",
+        "plt.imshow(cv2.cvtColor(img_basic, cv2.COLOR_GRAY2RGB))\n",
+        "plt.show()"
+      ],
+      "metadata": {
+        "id": "HRA34KBWefr3"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
